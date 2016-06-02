@@ -1,0 +1,6 @@
+      84 date.txt
+     218 q3a.pl
+     234 q1e.pl
+     439 q4a.pl
+     774 q4b.pl
+    1749 total

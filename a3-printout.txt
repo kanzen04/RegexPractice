@@ -1,0 +1,63 @@
+Dawa Lama 
+109463980
+CSE 337 
+Assignment 3
+
+
+1. The matched part is put in { } since highlight doesn’t transfer in a text file. So, whatever is in the {} are matched. 
+
+	a. 
+		Ordinary, {ord}er, aff{ord}, c{ord}ford, ‘ORD airport’
+
+	b. 
+		p, a{.pl}, {<}p>, devel{op}ing, {pp}p
+
+	c. 
+		{foo}, {foobar}, bar{foo}, {foobarfoo}, port{follio}
+
+	d. 
+		work, back2{work}, to_do_{work}, networking, “course{work} list’
+
+2. 
+	a.
+		The match will be: 5 to 10 characters long consisting of word or a ‘-‘
+		e.g asd-fe, a-d-g-e-
+	
+	b. 
+		Match is done from the beginning of the line/text and begins with ‘+’ or ‘-‘ or neither, followed by one or more digits, followed by a ‘.’ or  not, followed by zero or more digit which is also the end of the line or text. In simple words; a positive or a negative number with or without decimal places. Positive number can contain a ‘+’ or nothing in the front.
+		e.g. +143.32, 235
+
+	c. 
+		It substitutes <b> or </b> with <strong> or </strong> respectively. It does this case-insensitively and globally. 
+		e.g <B> text </b> will be replaced with <strong> text </strong>
+		     <b>text</B> will be replaced with <strong>text</strong>
+	d.
+		It matches for < > which is either empty or has anything inside it followed by anything or<> which has only / or /anything The contents in between <> and </> is matched to zero or more characters but as little as possible. the contents of the first <> should be the same for the second <> but in the second one, the contents of the first <> will be preceded by a ‘/‘. 
+		e.g. <random>text</random> , <>text</>
+		
+	e.
+		This is identical to the match of part d. But with the exception that in between <> and </>; it will match zero or more characters and as much as possible is matched.
+		e.g <h1>here is something</h1>, <p></p>
+	
+	f. 
+		It matches to one more more spaces followed by one or more ‘a-z’ or digit or ‘_’ or ‘-‘ followed by ‘@‘ followed by one or more decimal or ‘a-z’ or ‘.’ followed by a ‘.’ followed by two to six characters consisting of ‘a-z’ followed by one or more spaces.
+		e.g. “ab12_2-@2ab..the  ”, “   23dag-32_@234zxc.sdf.zebr       ” 
+		The “ in the example is just to show the spaces and the example doesn’t have “ ” in it. So, if i have “abc”, it is just abc. 
+
+
+
+ 3.
+	a.
+		look for the exception of CSE390-392 and ISE390-392
+		regex = /^(CSE|ISE)[1-4]{1}\d{2}(-[1-4]{1}\d{2})?$/ig
+
+		To check in the script of 1e, I used the:
+		regex = //^(CSE|cse|ise|ISE)[1-4]{1}\d{2}(-[1-4]{1}\d{2})?$/g
+		
+	b.
+		regex = /[^\w./-]+/
+		second_regex = /[^0-9a-zA-Z_./-]+/
+	c.
+		regex = /(\b\w+\b).*\1/
+	d.
+		regex = /a(ba)+/
